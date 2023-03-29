@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Math를 활용한 구구단 연습</title>
+</head>
+<body>
+  <h3>Math를 활용한 구구단 연습</h3>
+  <hr>
+  <script>
+	function randomInt() {
+		return Math.floor(Math.random()*9) + 1; 
+	  }
+    let correctCount = 0; // 정답 횟수를 저장하는 변수
+    let incorrectCount = 0; // 오답 횟수를 저장하는 변수
+    for(let i = 0; i < 10; i++) { // 10번 반복하는 반복문
+      let ques = randomInt() + "*" + randomInt();
+      let user = prompt(ques + " 값은 얼마입니까?", 0);
+      if(user == null) {
+        document.write("구구단 연습을 종료합니다");
+        break; // 게임 종료 후 루프 탈출
+      } else {
+        let ans = eval(ques);
+        if(ans == user) {
+          document.write("정답! ");
+          correctCount++; // 정답인 경우 정답 횟수 증가
+        } else {
+          document.write("아니오! ");
+          incorrectCount++; // 오답인 경우 오답 횟수 증가
+        }
+        document.write(ques + "=" + "<strong>" + ans + "</strong>입니다<br>");
+      }
+    }
+    // 게임 종료 후 정답과 오답 횟수 출력
+    document.write("정답 횟수: " + correctCount + "<br>");
+    document.write("오답 횟수: " + incorrectCount + "<br>");
+	
+  </script>
+  <hr>
+  <p>채점자 : 신재호</p>
+</body>
+</html>
